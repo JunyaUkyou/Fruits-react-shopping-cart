@@ -1,0 +1,21 @@
+import { CHANGELANG } from '../actions'
+
+const initialState = {
+  select:[
+    {lang:'ja',value:['日本語','英語']},
+    {lang:'en',value:['japanese','english']}
+  ],
+  select2:['日本語','English'],
+  current:'ja'
+};
+
+const lang = (state = initialState, action) => {
+  switch (action.type) {
+    case CHANGELANG:
+      console.log(action);
+    default:
+      return state
+  }
+}
+
+export default lang
