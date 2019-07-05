@@ -1,0 +1,54 @@
+{
+  "日本語":[
+    {
+      "id": 1, 
+      "name": "りんご", 
+      "memo":"とっても美味しいりんごです",
+      "price":100,
+      "tax_rate":8,
+      "price_in_tax":108
+    },
+    {
+      "id": 2, 
+      "name": "みかん", 
+      "memo":"とっても美味しいみかんです",
+      "price":200,
+      "tax_rate":8,
+      "price_in_tax":216
+    },
+    {
+      "id": 3, 
+      "name": "ぶどう", 
+      "memo":"とっても美味しいぶどうです",
+      "price":300,
+      "tax_rate":8,
+      "price_in_tax":324
+    }
+  ],
+  "English":[
+    {
+      "id": 1, 
+      "name": "apple", 
+      "memo":"apple",
+      "price":100,
+      "tax_rate":8,
+      "price_in_tax":108
+    },
+    {
+      "id": 2, 
+      "name": "orange", 
+      "memo":"orange",
+      "price":200,
+      "tax_rate":8,
+      "price_in_tax":216
+    },
+    {
+      "id": 3, 
+      "name": "grape", 
+      "memo":"grape",
+      "price":300,
+      "tax_rate":8,
+      "price_in_tax":324
+    }    
+  ]
+}

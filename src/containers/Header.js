@@ -27,7 +27,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  changeLang: payload => dispatch(changeLang(payload)),
+  changeLang: payload => dispatch(changeLang(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

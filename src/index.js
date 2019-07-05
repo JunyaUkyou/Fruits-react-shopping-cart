@@ -7,11 +7,15 @@ import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
+import { getProductList } from './actions';
 
 const middleware = [ thunk ];
-
 const store = createStore(reducer,applyMiddleware(...middleware));
+const {lang} = store.getState();
 
+store.dispatch(getProductList(lang.current));
+
+store.subscribe(() => getProductList(lang.current))
 
 ReactDOM.render(
   <Provider store={store}>

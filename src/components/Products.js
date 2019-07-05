@@ -4,7 +4,9 @@ class Products extends React.Component {
   constructor(props){
     super(props);
 
-    const product_num = this.props.products.map(val => ({product_id:val.id,num:1}))
+console.log(this.props);
+const bbb = this.props.products[this.props.lang.current] ? this.props.products[this.props.lang.current] : [];
+    const product_num = bbb.map(val => ({product_id:val.id,num:1}))
     this.state = ({ product_num: product_num });
   }
   render() {
@@ -14,7 +16,13 @@ class Products extends React.Component {
     })
 
 
-    const list = this.props.products.map((val,index) => {
+//    const aaa = this.props.products.filter( (val,index) => {
+//      return val === this.props.lang.current
+//    })
+const aaa = this.props.products[this.props.lang.current] ? this.props.products[this.props.lang.current] : [];
+    console.log(aaa);
+
+    const list = aaa.map((val,index) => {
       return (
           <li key={val.id}>
             {val.name}<br />
@@ -57,7 +65,7 @@ class Products extends React.Component {
   }
 
   addProduct = (e,product_id) => {
-    const product = this.props.products.filter(val => val.id === product_id).shift();
+    const product = this.props.products[this.props.lang.current].filter(val => val.id === product_id).shift();
     const quantity = this.state.product_num.filter(val => val.product_id === product_id).map(val => val.num).shift();
     product.quantity = quantity;
     this.props.addProduct(product);
