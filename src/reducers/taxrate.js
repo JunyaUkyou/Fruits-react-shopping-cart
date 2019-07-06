@@ -6,6 +6,8 @@ const taxrate = (state = initialState, action) => {
   switch (action.type) {
     case GET_TAX_RATE:
       return action.response
+    case WAIT_TAX_RATE:
+      return state    
     default:
       return state
   }

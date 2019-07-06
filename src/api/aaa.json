@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1, 
+    "name": [
+      {"日本語":"りんご"},
+      {"English":"apple"}
+    ], 
+    "memo":[
+      {"日本語":"とっても美味しいりんごです"},
+      {"English":"This apple is so good!"}
+    ],
+    "price":100,
+    "sale_limit":10
+  },
+  {
+    "id": 2, 
+    "name": [
+        {"日本語":"みかん"},
+        {"English":"orange"}
+    ],
+    "memo":[
+      {"日本語":"とっても美味しいみかんです"},
+      {"English":"That was the best orange I've ever had!"}
+    ],
+    "price":200,
+    "sale_limit":10
+  },
+  {
+    "id": 3, 
+    "name": [
+        {"日本語":"ぶどう"},
+        {"English":"grape"}
+    ],
+    "memo":[
+      {"日本語":"とっても美味しいぶどうです"},
+      {"English":"Excellent!"}
+    ],
+    "price":300,
+    "sale_limit":10
+  }
+]

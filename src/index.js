@@ -8,6 +8,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 import { getProductList, getTaxRate } from './actions';
+import data from './api/aaa.json';
+
+//console.log(data);
+//  https://api.myjson.com/bins/nfycj
 
 const middleware = [ thunk ];
 const store = createStore(reducer,applyMiddleware(...middleware));
