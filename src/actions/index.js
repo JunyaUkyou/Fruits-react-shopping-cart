@@ -12,6 +12,8 @@ export const CHANGEQUANTITYOFPRODUCT = 'CHANGEQUANTITYOFPRODUCT';
 export const CHANGELANG = 'CHANGELANG';
 export const WAIT_PRODUCT_LIST = 'WAIT_PRODUCT_LIST';
 export const SHOW_PRODUCT_LIST = 'SHOW_PRODUCT_LIST';
+export const WAIT_TAX_RATE = 'WAIT_TAX_RATE';
+export const GET_TAX_RATE = 'GET_TAX_RATE';
 
 /*
 * action creators
@@ -35,6 +37,28 @@ export const changeLang = (payload) => ({
     type: 'CHANGELANG',
     payload
 })
+
+export const getTaxRate = () => {
+    return dispatch => {
+        dispatch({ type: "WAIT_TAX_RATE"});
+        const aaa = "https://api.myjson.com/bins/w1vr7";
+
+        fetch(aaa).then((response) => {
+            if(!response.ok){
+              console.log('error');                
+            }
+            return response;
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((myJson) => {
+            dispatch({ type: "GET_TAX_RATE", response:myJson.taxrate })
+        })
+
+    };
+  };
+
 
 export const getProductList = (lang) => {
     return dispatch => {
