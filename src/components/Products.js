@@ -4,30 +4,24 @@ class Products extends React.Component {
   constructor(props){
     super(props);
 
-console.log(this.props);
-const bbb = this.props.products[this.props.lang.current] ? this.props.products[this.props.lang.current] : [];
-    const product_num = bbb.map(val => ({product_id:val.id,num:1}))
+    const product_num = this.props.products.map(val => ({product_id:val.id,num:1}))
     this.state = ({ product_num: product_num });
   }
   render() {
-
     const options = new Array(10).fill(0).map((val,index) => {
       return <option key={index} value={index + 1}>{index + 1}</option>
     })
 
+    const taxRate = (this.props.taxrate+100)/100  ;
 
-//    const aaa = this.props.products.filter( (val,index) => {
-//      return val === this.props.lang.current
-//    })
-const aaa = this.props.products[this.props.lang.current] ? this.props.products[this.props.lang.current] : [];
-    console.log(aaa);
+    const langId = this.props.lang.select.findIndex((val) => val === this.props.lang.current)
 
-    const list = aaa.map((val,index) => {
+    const list = this.props.products.map((val,index) => {
       return (
           <li key={val.id}>
-            {val.name}<br />
-            {val.memo}<br />
-            {val.price_in_tax}円 (税込)<br />
+            {val.name[langId]}<br />
+            {val.memo[langId]}<br />
+            {val.price * taxRate}円 (税込) <br />
             <select onChange={e=>this.changeValu(e.target.value,val.id)} >
               {options}
             </select>
@@ -65,9 +59,11 @@ const aaa = this.props.products[this.props.lang.current] ? this.props.products[t
   }
 
   addProduct = (e,product_id) => {
-    const product = this.props.products[this.props.lang.current].filter(val => val.id === product_id).shift();
+    const product = this.props.products.filter(val => val.id === product_id).shift();
+    
     const quantity = this.state.product_num.filter(val => val.product_id === product_id).map(val => val.num).shift();
     product.quantity = quantity;
+    console.log(quantity);
     this.props.addProduct(product);
   }
 

@@ -14,6 +14,7 @@ export const WAIT_PRODUCT_LIST = 'WAIT_PRODUCT_LIST';
 export const SHOW_PRODUCT_LIST = 'SHOW_PRODUCT_LIST';
 export const WAIT_TAX_RATE = 'WAIT_TAX_RATE';
 export const GET_TAX_RATE = 'GET_TAX_RATE';
+export const SHOW_ALL_PRODUCT_LIST = 'SHOW_ALL_PRODUCT_LIST';
 
 /*
 * action creators
@@ -69,6 +70,17 @@ export const getProductList = (lang) => {
         axios.get(url).then(res => {
           dispatch({ type: "SHOW_PRODUCT_LIST", payload:res.data,lang:lang  });
 //            dispatch({ type: "SHOW_PRODUCT_LIST", payload:test });
+        });
+    };
+  };
+
+  export const getAllProducts = () => {
+    return dispatch => {
+        dispatch({ type: "WAIT_ALL_PRODUCT_LIST"});
+        const url = "https://api.myjson.com/bins/zlou3";
+
+        axios.get(url).then(res => {
+          dispatch({ type: "SHOW_ALL_PRODUCT_LIST", payload:res.data  });
         });
     };
   };

@@ -14,13 +14,13 @@ class Cart extends React.Component {
   }
 
   changeValu = (quantity,product_id) => {
-    const product = this.props.products[this.props.lang.current].filter(val => val.id === product_id).shift();
+    const product = this.props.products.filter(val => val.id === product_id).shift();
     product.quantity = quantity;
     this.props.changeQuantityOfProduct(product);
   }
 
   clickDelteButton = (e,product_id) => {
-    const product = this.props.products[this.props.lang.current].filter(val => val.id === product_id).shift();
+    const product = this.props.products.filter(val => val.id === product_id).shift();
     this.props.deleteProduct(product);
   }
 }

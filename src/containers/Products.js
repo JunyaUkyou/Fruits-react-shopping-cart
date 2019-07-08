@@ -9,6 +9,7 @@ const getProductForLang = (lang) => {
 
 const mapStateToProps = state => {
   return {
+    taxrate: state.taxrate,
     products: state.products,
     cart: state.cart,
     lang:state.lang,

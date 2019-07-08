@@ -18,7 +18,10 @@ const cart =  (state = initialState, action) => {
       }
 
       return [
-        ...state,product
+        ...state, { 
+          id:product.id,
+          quantity:product.quantity 
+        }
       ]
     case DELETEPRODUCT:
       return state.filter(val => val.id !== product.id)
