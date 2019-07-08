@@ -17,7 +17,7 @@ class Header extends React.Component {
       }
     }
     const headerContens = getHeaderContens();
-
+    
     return (
       <div>
         {headerContens}

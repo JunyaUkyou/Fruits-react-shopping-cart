@@ -1,24 +1,16 @@
-//import { ADDTODO,TOGGLE } from '../actions'
+import { WAIT_PRODUCT_LIST, SHOW_PRODUCT_LIST,SHOW_ALL_PRODUCT_LIST } from '../actions'
 
-const initialState = [
-  {
-    id:1,
-    name:'りんご',
-    memo:'とっても美味しいりんごです',
-    price:100,
-    price_in_tax:108,
-  },
-  {
-    id:2,
-    name:'みかん',
-    memo:'とっても美味しいみかんです',
-    price:200,
-    price_in_tax:216,
-  }
-];
+
+const initialState = [];
 
 const products = (state = initialState, action) => {
   switch (action.type) {
+//    case SHOW_PRODUCT_LIST:
+//      return action.payload;
+    case SHOW_ALL_PRODUCT_LIST:
+      return action.payload;
+    case WAIT_PRODUCT_LIST:
+      return state;
     default:
       return state
   }
