@@ -4,11 +4,8 @@ import  Header  from '../components/Header';
 import { changeLang } from '../actions';
 
 const geTtotalPrice = (cart,taxrate) => {
-  console.log(taxrate);
   const rate = (100 + taxrate) / 100
-
   const sum = cart.reduce((a,x) => a+=((x.price * rate) * x.quantity),0);
-  console.log(sum);
   return sum;
 }
 const geTtotalPriceInTax = cart => {
