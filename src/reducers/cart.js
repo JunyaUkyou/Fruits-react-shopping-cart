@@ -20,7 +20,8 @@ const cart =  (state = initialState, action) => {
       return [
         ...state, { 
           id:product.id,
-          quantity:product.quantity 
+          quantity:product.quantity,
+          price:product.price
         }
       ]
     case DELETEPRODUCT:
