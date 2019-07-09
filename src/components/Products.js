@@ -71,11 +71,8 @@ class Products extends React.Component {
 
   addProduct = (e,product_id) => {
     const product = this.props.products.filter(val => val.id === product_id).shift();
-    
-    console.log(this.state.product_num);
     const quantity = this.state.product_num.filter(val => val.product_id === product_id).map(val => val.num).shift();
     product.quantity = quantity;
-    console.log(product);
     this.props.addProduct(product);
   }
 
