@@ -3,7 +3,7 @@ import { getText } from './CartText';
 
 const CartItems = (props) => {
 
-  const { cart,total_price_intax,lang } = props;
+  const { cart,lang } = props;
   const message = getText(lang.current);
   if(cart.length === 0){
     return <p>{message.isEmpty}</p>;
@@ -12,7 +12,7 @@ const CartItems = (props) => {
   const options = new Array(10).fill(0).map((val,index) => {
     return <option key={index} value={index + 1}>{index + 1}</option>
   })
-  const langId = props.lang.select.findIndex((val) => val === props.lang.current)
+  const langId = lang.select.findIndex((val) => val === lang.current)
   const rate = (100 + props.taxrate) / 100
 
   const tableDate = props.cart.map((val,index) => {

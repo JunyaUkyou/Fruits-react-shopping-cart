@@ -1,5 +1,3 @@
-
-import products from '../api/products.json'
 import axios from "axios";
 
 

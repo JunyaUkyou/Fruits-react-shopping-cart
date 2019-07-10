@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import  Cart  from '../components/Cart';
 import { connect } from 'react-redux';
 import { addProduct,deleteProduct,changeQuantityOfProduct,changeLang } from '../actions';
