@@ -12,21 +12,23 @@ const CartItems = (props) => {
   const options = new Array(10).fill(0).map((val,index) => {
     return <option key={index} value={index + 1}>{index + 1}</option>
   })
+  const langId = props.lang.select.findIndex((val) => val === props.lang.current)
+  const rate = (100 + props.taxrate) / 100
 
   const tableDate = props.cart.map((val,index) => {
     return (
       <tbody key={index}>
         <tr >
           <td><button onClick={e=>props.clickDelteButton(e,val.id)}>{message.deletebutton}</button></td>
-          <td>{val.name}</td>
-          <td>{val.price_in_tax}</td>
+          <td>{val.name[langId]}</td>
+          <td>{val.price * rate}</td>
           <td>
             <select value={val.quantity} onChange={e=>props.changeValu(Number(e.target.value),val.id)}>
               {options}
             </select >
 
           </td>
-          <td>{val.price_in_tax * val.quantity}</td>
+          <td>{(val.price * rate) * val.quantity}</td>
         </tr>
       </tbody>
     )

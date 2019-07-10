@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import  Header  from '../components/Header';
 import { changeLang } from '../actions';
 
-const geTtotalPrice = cart => {
-  const sum = cart.reduce((a,x) => a+=(x.price * x.quantity),0);
+const geTtotalPrice = (cart, taxrate) => {
+  const rate = (100 + taxrate) / 100
+  const sum = cart.reduce((a,x) => a+=((x.price * rate) * x.quantity),0);
   return sum;
 }
 const geTtotalPriceInTax = cart => {
@@ -19,10 +20,11 @@ const geTtotalQuantity = cart => {
 
 const mapStateToProps = state => {
   return {
-    total_price: geTtotalPrice(state.cart),
+    total_price: geTtotalPrice(state.cart,state.taxrate),
     total_price_intax: geTtotalPriceInTax(state.cart),
     totalQuantity: geTtotalQuantity(state.cart),
-    lang: state.lang
+    lang: state.lang,
+    taxrate: state.taxrate
   };
 };
 

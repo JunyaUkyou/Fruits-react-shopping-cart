@@ -7,7 +7,7 @@ const HeaderJa = (props) => {
 
   return (
     <div>
-      Your shopping cart  {props.totalQuantity}quantity {props.total_price_intax}yen
+      Your shopping cart  {props.totalQuantity}quantity {props.total_price}yen
       <select value={current} onChange={e=>props.changeLang(e.target.value)}>
         {langOption}
       </select>
