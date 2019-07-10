@@ -3,8 +3,6 @@ import { getText } from './FooterText';
 
 class Footer extends React.Component {
   render(){
-    console.log(this.props.lang.current);
-
     const message = getText(this.props.lang.current);
 
     return (
