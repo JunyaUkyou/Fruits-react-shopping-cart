@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { getText } from './FooterText';
 
-function Footer() {
-  return (
-    <div>
-    フッター
-    </div>
-  );
+class Footer extends React.Component {
+  render(){
+    const message = getText(this.props.lang.current);
+
+    return (
+      <div>
+        {message.footer_title}
+      </div>
+    );
+  
+  }
+
+
 }
 
 export default Footer;

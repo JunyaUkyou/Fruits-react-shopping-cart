@@ -1,26 +1,23 @@
 import React from 'react';
-import HeaderJa from './HeaderJa';
-import HeaderEn from './HeaderEn';
+import { getText } from './HeaderText';
+//import '../style/header.css';
 
 class Header extends React.Component {
   render() {
 
-    const getHeaderContens = () => {
-      switch (this.props.lang.current) {
-        case '日本語':
-          return <HeaderJa {...this.props}/>;
-        case 'English':
-          return <HeaderEn {...this.props}/>;
-        default:
-          return <HeaderJa {...this.props}/>;
-
-      }
-    }
-    const headerContens = getHeaderContens();
+    const message = getText(this.props.lang.current);
+    const langOption =
+      this.props.lang.select.map((val,index) => <option key={index} value={val}>{val}</option>);
     
     return (
-      <div>
-        {headerContens}
+      <div className="herder_contens">
+        <h1>{message.title}</h1>
+        <div>
+          {message.your_cart}  {this.props.totalQuantity}{message.quantity} {this.props.total_price}{message.yen}
+          <select value={this.props.lang.current} onChange={e=>this.changeLang(e.target.value)}>
+            {langOption}
+          </select>
+        </div>
       </div>
     );
   }
