@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 export const getText = (lang) => {
   switch (lang) {
@@ -11,10 +9,9 @@ export const getText = (lang) => {
         th_name:'名前',
         th_price:'価格',
         th_quantity:'数量',
-        th_total:'合計',
-        bbb:'bbb'
+        th_total:'合計'
       }
-      break;
+
       case 'English':
         return {
           isEmpty:'Your shopping cart is empty',
@@ -23,14 +20,12 @@ export const getText = (lang) => {
           th_name:'name',
           th_price:'price',
           th_quantity:'quantity',
-          th_total:'total',
-          bbb:'bbb'
+          th_total:'total'
         }
-        break;
+
     default:
     return {
-      isEmpty:'現在カートは空です',
-      bbb:'bbb'
+      isEmpty:'現在カートは空です'
     }
   }
 }
