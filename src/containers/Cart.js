@@ -7,8 +7,10 @@ const geTtotalPrice = cart => {
   const sum = cart.reduce((a,x) => a+=(x.price * x.quantity),0);
   return sum;
 }
-const geTtotalPriceInTax = cart => {
-  const sum = cart.reduce((a,x) => a+=(x.price_in_tax * x.quantity),0);
+
+const geTtotalPriceInTax = (cart, taxrate) => {
+  const rate = (100 + taxrate) / 100
+  const sum = cart.reduce((a,x) => a+=((x.price * rate) * x.quantity),0);
   return sum;
 }
 const geTtotalQuantity = cart => {
@@ -21,9 +23,10 @@ const mapStateToProps = state => {
     products: state.products,
     cart: state.cart,
     total_price: geTtotalPrice(state.cart),
-    total_price_intax: geTtotalPriceInTax(state.cart),
+    total_price_intax: geTtotalPriceInTax(state.cart, state.taxrate),
     totalQuantity: geTtotalQuantity(state.cart),
-    lang: state.lang
+    lang: state.lang,
+    taxrate: state.taxrate
   };
 };
 const mapDispatchToProps = dispatch => ({

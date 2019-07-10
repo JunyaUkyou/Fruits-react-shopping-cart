@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import  Header  from '../components/Header';
 import { changeLang } from '../actions';
 
-const geTtotalPrice = (cart,taxrate) => {
+const geTtotalPrice = (cart, taxrate) => {
   const rate = (100 + taxrate) / 100
   const sum = cart.reduce((a,x) => a+=((x.price * rate) * x.quantity),0);
   return sum;
