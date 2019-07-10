@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 import { getTaxRate, getAllProducts } from './actions';
+import './style/reset.css';
 
 
 const middleware = [ thunk ];

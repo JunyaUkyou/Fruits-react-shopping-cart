@@ -1,26 +1,23 @@
 import React from 'react';
 import HomeJa from './HomeJa';
 import HomeEN from './HomeEN';
+import { getText } from './HomeText';
 
 class Home extends React.Component {
   render() {
 
-    const getHomeContens = () => {
-      switch (this.props.lang.current) {
-        case '日本語':
-          return <HomeJa />;
-        case 'English':
-          return <HomeEN />;
-        default:
-          return <HomeJa />;
-
-      }
-    }
-    const HomeContens = getHomeContens();
+    const message = getText(this.props.lang.current);
+    console.log(message);
+    const list = message.notice.map((val,index) => <li key={index}>{val}</li>)
 
     return (
       <div>
-        {HomeContens}
+        <h2>{ message.page_title }</h2>
+        <p>{ message.welcome }</p>
+        <p>{ message.notice_title }</p>
+        <ul>
+          {list}
+        </ul>
       </div>
     )
   }

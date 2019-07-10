@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderJa from './HeaderJa';
 import HeaderEn from './HeaderEn';
+import '../style/header.css';
 
 class Header extends React.Component {
   render() {
@@ -19,7 +20,8 @@ class Header extends React.Component {
     const headerContens = getHeaderContens();
     
     return (
-      <div>
+      <div className="herder_contens">
+        <h1>Ffuit Shop</h1>
         {headerContens}
       </div>
     );
