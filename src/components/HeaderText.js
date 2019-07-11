@@ -3,7 +3,7 @@ export const getText = (lang) => {
   switch (lang) {
     case '日本語':
       return {
-        title:'Ffuit Shop',
+        title:'フルーツショップ',
         your_cart:'現在のカート',
         quantity:'個',
         yen:'円'
