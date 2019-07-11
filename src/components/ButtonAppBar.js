@@ -11,6 +11,8 @@ import Badge from '@material-ui/core/Badge';
 import LanguageIcon from '@material-ui/icons/Language';
 import { getText } from './HeaderText';
 import GitHubIcon from './GitHub';
+import Link from '@material-ui/core/Link';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -101,6 +103,9 @@ const ButtonAppBar = (props) => {
 
               <IconButton
                 color="inherit"
+                href="https://github.com/JunyaUkyou/Fruits-react-shopping-cart"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                   <GitHubIcon />
               </IconButton>
