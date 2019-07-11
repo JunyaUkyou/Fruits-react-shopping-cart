@@ -10,6 +10,7 @@ import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
 import LanguageIcon from '@material-ui/icons/Language';
 import { getText } from './HeaderText';
+import GitHubIcon from './GitHub';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -97,6 +98,12 @@ const ButtonAppBar = (props) => {
               >
               { menuItems }
               </Menu>
+
+              <IconButton
+                color="inherit"
+              >
+                  <GitHubIcon />
+              </IconButton>
 
 
 
