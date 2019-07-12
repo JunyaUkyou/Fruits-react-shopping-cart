@@ -7,7 +7,9 @@ export const getText = (lang) => {
         your_cart:'現在のカート',
         quantity:'個',
         yen:'円',
-        empty:'カートは空です'
+        empty:'カートは空です',
+        next_products:'商品はこちらです',
+        next_cart:'カートページはこちらです',
       }
     case 'English':
       return {
@@ -15,7 +17,9 @@ export const getText = (lang) => {
         your_cart:'Your shopping cart',
         quantity:'quantity',
         yen:'yen',
-        empty:'Your cart is empty'        
+        empty:'Your cart is empty',
+        next_products:'Show Products List',
+        next_cart:'Go to Cart',
       }
     default:
       return {
@@ -23,7 +27,9 @@ export const getText = (lang) => {
         your_cart:'現在のカート',
         quantity:'個',
         yen:'円',
-        empty:'カートは空です'
+        empty:'カートは空です',
+        next_products:'商品はこちらにあります',
+        next_cart:'カートページはこちらです',
       }
   }
 }

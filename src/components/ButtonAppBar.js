@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import ShoppingCart from '@material-ui/icons/ShoppingCart';
@@ -12,6 +13,9 @@ import LanguageIcon from '@material-ui/icons/Language';
 import { getText } from './HeaderText';
 import GitHubIcon from './GitHub';
 import Modal from '@material-ui/core/Modal';
+
+
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -67,6 +71,16 @@ const ButtonAppBar = (props) => {
   <p id="simple-modal-description">
     {props.totalQuantity}{message.quantity} {props.total_price}{message.yen}
   </p>
+
+const modal_next_message = props.totalQuantity === 0 ? 
+<Button onClick={e=>nextAction('/products')}>
+  {message.next_products}
+</Button>
+  :
+<Button onClick={e=>nextAction('/cart')}>
+  {message.next_cart}
+</Button>
+
   const [modal_open, modal_setOpen] = React.useState(false);
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
@@ -94,6 +108,11 @@ const ButtonAppBar = (props) => {
     modal_setOpen(false);
   };
 
+  const nextAction = page => {
+    modal_setOpen(false);
+    props.goPage(page)
+  };
+
 
   return (
     <div className={classes.root}>
@@ -101,7 +120,9 @@ const ButtonAppBar = (props) => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
+            <span onClick={e=>props.goPage('/') }>
             { message.title }
+            </span>
           </Typography>
 
           <IconButton 
@@ -122,12 +143,11 @@ const ButtonAppBar = (props) => {
             >
             
             <div style={modalStyle} className={classes.paper}>
-          <h2 id="modal-title">{message.your_cart}</h2>
-          
-          {modal_message}
-          
-          
-        </div>
+              <h2 id="modal-title">{message.your_cart}</h2> 
+              {modal_message}
+              {modal_next_message}
+               
+            </div>
 
 
             </Modal>
