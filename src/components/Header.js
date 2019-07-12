@@ -11,9 +11,6 @@ class Header extends React.Component {
     return (
       <div className="herder_contens">
         <ButtonAppBar {...this.props} changeLang={this.changeLang} />
-        <div>
-          {message.your_cart}  {this.props.totalQuantity}{message.quantity} {this.props.total_price}{message.yen}
-        </div>
       </div>
     );
   }
