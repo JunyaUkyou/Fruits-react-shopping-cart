@@ -1,16 +1,13 @@
 import React from 'react';
-import { getText } from './HeaderText';
 import ButtonAppBar from './ButtonAppBar.js';
 
+import { withRouter } from 'react-router';
+
 class Header extends React.Component {
-  render() {
-
-    const message = getText(this.props.lang.current);
-
-    
+  render() {    
     return (
       <div className="herder_contens">
-        <ButtonAppBar {...this.props} changeLang={this.changeLang} />
+        <ButtonAppBar {...this.props} changeLang={this.changeLang}  clickLogo={this.clickLogo} goPage={this.goPage}  />
       </div>
     );
   }
@@ -18,6 +15,13 @@ class Header extends React.Component {
   changeLang = (value) => {
     this.props.changeLang(value);
   }
+
+  clickLogo = () => {
+    this.props.history.push('/');
+  }
+
+  goPage = url => ( this.props.history.push(url) );
+
 }
 
-export default Header;
+export default withRouter(Header);
